@@ -1,7 +1,7 @@
 #!/bin/bash
 cd $LFS/sources
-pv linux-6.7.4.tar.xz | tar -xJ
-cd linux-6.7.4
+pv linux-v0.1.0-alpha.tar.gz | tar -xzJ
+cd linux-v0.1.0-alpha
 
 echo "Building kernel headers..."
 
