@@ -150,6 +150,11 @@
     </div>
 
     <script>
+      window.onload = function() {
+            var overlay = document.getElementById('background-overlay');
+            overlay.style.opacity = 0.0;
+        };
+        
         window.addEventListener('scroll', function() {
             var overlay = document.getElementById('background-overlay');
             var aboutSection = document.getElementById('about');
