@@ -22,13 +22,39 @@
         }
 
         .background-overlay {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(75, 31, 17, 0.5);
+            background-color: rgb(14, 13, 13);
             z-index: -1;
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: rgb(10, 10, 10);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .container {
@@ -39,31 +65,73 @@
             flex-direction: column;
             text-align: center;
             z-index: 1;
+            padding-top: 80px;
         }
 
         .about-section {
             padding: 20px;
             z-index: 1;
+            position: relative;
+            padding-top: 80px;
         }
     </style>
 </head>
 
 <body>
-    <div class="background-overlay"></div>
+    <div class="background-overlay" id="background-overlay"></div>
+
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#docs">Documentation</a>
+    </div>
+
     <div class="container">
         <h1>Ligma OS</h1>
         <p>Give your hardware what it deserves.</p>
     </div>
 
-    <div class="about-section">
-        <h2>But what is Ligma OS?</h2>
+    <div class="about-section" id="about">
+        <h2>But what is Ligma</h2>
+
         <p>
-            Ligma OS is a Linux® distribution that takes an asinine approach to everything it does.<br>
-            It is a masochistic operating system for those who are tired of the ease of use of conventional operating
-            systems.<br>
+            Ligma OS is a minimalist desktop Linux® distribution,.<br>
+        </p>
+        
+        <p>
+            Ligma OS is designed to be fast and robust, but its also designed to come with <br>
+            core features missing in most operating systems today. This includes advanced features such as <br>
+            next-gen AI integration, as well as built-in hentai capabilities.
         </p>
 
+        <p>
+            If you're lonely or in need of assistance simply make use of our advanced AI assistant, Milk-v6. <br>
+            We have given her a direct interface to the shell, allowing you to complete all kinds of command line <br>
+            tasks with the power of natural human speech. Milk-v6 is a security risk, but she's our security risk. <br>
+            We hope that you too can form an unhealthy relationship with her.
+        </p>
+
+        <p>
+            If you're ever feeling aroused, then you can make use of the built in hentai downloading abilities of Ligma OS. <br>
+            Web browsers are big, complicated pieces of software. If all you're using it for is porn, then why not just skip the middleman? <br>
+            That's where the Ligma OS hentai tools come in. We have developed a program that gives you access to hentai straight from the <br>
+            command line.
+        </p>
+
+        <p>
+            Here at Ligma OS we believe in the Unix philosophy. Each program does one thing, and it does it well. <br>
+            That is why each of our programs fits seamlessly into the shell.<br>
+            Milk-v6 can integrate with the Ligma OS hentai tools, and she can download hentai for you. <br>
+            We use cron to automatically create rotating hentai wallpapers.<br>
+            Femboys on monday, Catgirls on wednesday? <br>
+            The choice is up to you.
+        </p>
+    </div>
+
+    <div class="about-section" id="features">
         <h2>What are the features of Ligma OS?</h2>
+        <p>Didn't want to read the 'essay'?</p>
         <p>Ligma OS features an advanced set of features including: </p>
         <ul>
             <li>No package manager</li>
@@ -72,8 +140,31 @@
             <li>Musl libc</li>
             <li>Busybox utilities</li>
             <li>AI integration</li>
+            <li>Hentai capabilities</li>
         </ul>
     </div>
+
+    <div class="about-section" id="docs">
+        <h2>Docs</h2>
+        <p>There are none.</p>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var overlay = document.getElementById('background-overlay');
+            var aboutSection = document.getElementById('about');
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var sectionTop = aboutSection.offsetTop;
+            var sectionHeight = aboutSection.clientHeight;
+            var windowHeight = window.innerHeight;
+            var maxOpacity = 1.0;
+
+            var opacity = ((scrollTop - sectionTop + windowHeight) / windowHeight);
+            opacity = Math.min(Math.max(opacity, 0), 1);
+
+            overlay.style.opacity = opacity;
+        });
+    </script>
 </body>
 
 </html>
